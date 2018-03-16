@@ -1,0 +1,4 @@
+export const SET_PLAY_MODE = 'SET_PLAY_MODE';
+export const SET_PLAYER_SYMBOL = 'SET_PLAYER_SYMBOL';
+export const SET_GAME_BEGIN = 'SET_GAME_BEGIN';
+export const SET_GAME_LOADING = 'SET_GAME_LOADING';

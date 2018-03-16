@@ -1,0 +1,9 @@
+.board-inner {
+  height: $board-inner-height;
+  width: $board-inner-width;
+  background-color: $board-inner-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

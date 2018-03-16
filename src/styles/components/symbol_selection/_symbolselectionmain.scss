@@ -1,0 +1,9 @@
+.symbol-selection-main {
+  display: flex;
+  justify-content: space-around;
+
+  p {
+    border: 0.1rem solid greenyellow;
+    cursor: pointer;
+  }
+}
