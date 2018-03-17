@@ -1,9 +1,11 @@
 .board-game-tile {
   height: 10rem;
   width: 10rem;
-  border: 0.1rem solid #999;
+  border: 0.1rem solid $board-game-tiles-border-color;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0.1rem 0.1rem 0.1rem black;
+  box-shadow: 0.1rem 0.1rem 0.1rem $color-black-basic;
+  font-size: 350%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }

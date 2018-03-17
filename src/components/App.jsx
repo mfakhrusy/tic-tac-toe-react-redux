@@ -1,9 +1,9 @@
 import React from 'react';
-import Board from './Board/Board';
+import ContainerBoard from '../containers/Board/ContainerBoard';
 
 const App = () => (
   <div className="wrapper">
-    <Board />
+    <ContainerBoard />
   </div>
 );
 

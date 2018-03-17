@@ -5,17 +5,18 @@ import BoardGameIntro from './BoardGameIntro';
 import ContainerBoardGameTiles from '../../containers/Board/ContainerBoardGameTiles';
 
 class BoardGame extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      isGameLoading: true,
-    };
-  }
+  // constructor() {
+  //   super();
+  //   // this.state = {
+  //   //   isGameLoading: true,
+  //   // };
+  // }
 
   componentDidMount() {
     setTimeout(() => {
-      this.setState({ isGameLoading: false });
-    }, 500);
+      // this.setState({ isGameLoading: false });
+      this.props.setGameLoading(false);
+    }, 1000);
     this.calculateFirstPlayerTurn();
   }
 
@@ -29,7 +30,7 @@ class BoardGame extends React.Component {
   }
 
   render() {
-    const children = this.state.isGameLoading ? (
+    const children = this.props.isGameLoading ? (
       <BoardGameIntro playerTurn={this.props.playerTurn} />
     ) : (
       <ContainerBoardGameTiles />
@@ -45,7 +46,9 @@ class BoardGame extends React.Component {
 
 BoardGame.propTypes = {
   setPlayerTurn: PropTypes.func.isRequired,
+  setGameLoading: PropTypes.func.isRequired,
   playerTurn: PropTypes.oneOf(['X', 'O', '']).isRequired,
+  isGameLoading: PropTypes.bool.isRequired,
 };
 
 export default BoardGame;

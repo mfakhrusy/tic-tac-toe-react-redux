@@ -1,4 +1,16 @@
 .mode-selection {
-  border: 0.1rem solid red;
   cursor: pointer;
+  display: flex;
+  width: 0.5 * $board-inner-width;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background: linear-gradient(0deg, $board-inner-color, $board-mode-selection-hover-color);
+    color: $color-black-basic;
+    font-weight: bold;
+    box-shadow: inset 0.0rem 0.0rem 0.4rem $color-black-basic;
+  }
 }

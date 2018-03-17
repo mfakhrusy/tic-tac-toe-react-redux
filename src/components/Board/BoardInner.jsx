@@ -1,18 +1,14 @@
+/* eslint react/prefer-stateless-function: 0 */
 import React from 'react';
 import PropTypes from 'prop-types';
 import BoardTitle from './BoardTitle';
 import BoardModeSelection from './BoardModeSelection';
-import SingleMode from '../SingleMode/SingleMode';
-import DualMode from '../DualMode/DualMode';
+import SymbolSelection from '../SymbolSelection/SymbolSelection';
 import ContainerBoardGame from '../../containers/Board/ContainerBoardGame';
 
 class BoardInner extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(this.props);
-  }
-
   render() {
+    // last thing to appear, the actual game
     if (this.props.isGameBegin) {
       return (
         <div className="board-inner">
@@ -21,20 +17,15 @@ class BoardInner extends React.Component {
       );
     }
 
-    if (this.props.playMode === 'single') {
+    if (this.props.playMode === 'single' || this.props.playMode === 'dual') {
       return (
         <div className="board-inner">
-          <SingleMode />
-        </div>
-      );
-    } else if (this.props.playMode === 'dual') {
-      return (
-        <div className="board-inner">
-          <DualMode />
+          <SymbolSelection />
         </div>
       );
     }
 
+    // first thing to appear
     return (
       <div className="board-inner">
         <BoardTitle />

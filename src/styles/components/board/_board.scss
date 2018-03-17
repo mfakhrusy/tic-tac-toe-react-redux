@@ -5,6 +5,9 @@
   box-shadow: 0.2rem 0.2rem 0.5rem 0.7rem #323232;
   border-radius: 0.7rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  position: relative;
   align-items: center;
+  color: $board-fontcolor;
 }

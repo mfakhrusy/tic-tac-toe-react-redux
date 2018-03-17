@@ -1,0 +1,14 @@
+.symbol-selection-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 0.5 * $board-inner-height;
+  width: 100%;
+
+  p:first-of-type {
+    margin-bottom: 3rem;
+    font-size: 150%;
+    font-weight: bolder;
+  }
+}

@@ -2,7 +2,7 @@ import React from 'react';
 
 const BoardTitle = () => (
   <div className="board-title">
-    <h3>Which mode dude?</h3>
+    <h1>Select Play Mode!</h1>
   </div>
 );
 

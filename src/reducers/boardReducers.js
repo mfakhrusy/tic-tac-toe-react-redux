@@ -38,7 +38,7 @@ export const isGameBegin = (state = false, action) => {
   }
 };
 
-export const isGameLoading = (state = false, action) => {
+export const isGameLoading = (state = true, action) => { // true so can easily changed
   switch (action.type) {
     case SET_GAME_LOADING:
       return action.isGameLoading;

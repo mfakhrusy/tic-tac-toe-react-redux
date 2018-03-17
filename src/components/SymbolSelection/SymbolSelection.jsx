@@ -4,7 +4,7 @@ import ContainerSymbolSelectionFooter from '../../containers/SymbolSelection/Con
 import ContainerSymbolSelectionHeader from '../../containers/SymbolSelection/ContainerSymbolSelectionHeader';
 
 const SymbolSelection = () => (
-  <div className="board-single-mode">
+  <div className="board-symbol-selection">
     <ContainerSymbolSelectionHeader />
     <SymbolSelectionMain />
     <ContainerSymbolSelectionFooter />

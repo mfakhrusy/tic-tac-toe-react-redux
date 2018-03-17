@@ -1,11 +1,15 @@
-.symbol-selection-footer {
+.symbol-selection-choice {
+  cursor: pointer;
+  height: 100%;
+  width: 0.5 * $board-inner-width;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 0.15 * $board-inner-height;
-  width: 100%;
-  cursor: pointer;
+  
+  p {
+    font-size: 275%;
+  }
 
   &:hover {
     background: linear-gradient(0deg, $board-inner-color, $board-mode-selection-hover-color);

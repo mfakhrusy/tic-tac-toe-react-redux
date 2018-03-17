@@ -9,7 +9,7 @@ const BoardGameTile = ({ value, onClick }) => (
     tabIndex={0} // jsx-ally/interactive-supports-focus
     onKeyPress={onClick} // need this onKeyPress/onKeyUp/onKeyDown to surpress the warning
   >
-    {value}
+    <strong>{value}</strong>
   </div>
 );
 
