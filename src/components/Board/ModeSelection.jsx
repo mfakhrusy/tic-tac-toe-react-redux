@@ -16,6 +16,7 @@ const ModeSelection = ({ onClick, children }) => (
 
 ModeSelection.propTypes = {
   children: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ModeSelection;

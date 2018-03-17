@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import ModeSelection from '../components/ModeSelection';
-import { setPlayMode } from '../actions/boardActions';
+import ModeSelection from '../../components/Board/ModeSelection';
+import { setPlayMode } from '../../actions/boardActions';
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onClick: () => {

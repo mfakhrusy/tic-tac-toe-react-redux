@@ -1,5 +1,5 @@
 import React from 'react';
-import ContainerModeSelection from '../containers/ContainerModeSelection';
+import ContainerModeSelection from '../../containers/Board/ContainerModeSelection';
 
 const BoardModeSelection = () => (
   <div className="board-mode-selection">

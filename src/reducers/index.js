@@ -4,6 +4,8 @@ import {
   playerSymbol,
   isGameBegin,
   isGameLoading,
+  playerTurn,
+  boardTiles,
 } from './boardReducers';
 
 
@@ -12,6 +14,8 @@ const allReducers = combineReducers({
   playerSymbol,
   isGameBegin,
   isGameLoading,
+  playerTurn,
+  boardTiles,
 });
 
 export default allReducers;

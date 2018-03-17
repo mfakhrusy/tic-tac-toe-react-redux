@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import BoardInner from '../components/BoardInner';
+import BoardInner from '../../components/Board/BoardInner';
 
 const mapStateToProps = state => ({
   playMode: state.playMode,
