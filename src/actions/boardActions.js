@@ -5,6 +5,7 @@ import {
   SET_GAME_LOADING,
   SET_PLAYER_TURN,
   SET_BOARD_TILES,
+  SET_GAME_WINNER,
 } from '../constants/actionTypes';
 
 export const setPlayMode = playMode => (
@@ -46,5 +47,12 @@ export const setBoardTiles = boardTiles => (
   {
     type: SET_BOARD_TILES,
     boardTiles,
+  }
+);
+
+export const setGameWinner = gameWinner => (
+  {
+    type: SET_GAME_WINNER,
+    gameWinner,
   }
 );

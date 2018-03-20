@@ -6,6 +6,7 @@ import {
   isGameLoading,
   playerTurn,
   boardTiles,
+  gameWinner,
 } from './boardReducers';
 
 
@@ -16,6 +17,7 @@ const allReducers = combineReducers({
   isGameLoading,
   playerTurn,
   boardTiles,
+  gameWinner,
 });
 
 export default allReducers;

@@ -1,7 +1,9 @@
 /* eslint no-restricted-syntax: 0 */
+/* eslint no-console: 0 */
 import React from 'react';
 import PropTypes from 'prop-types';
 import BoardGameTile from './BoardGameTile';
+import { calculateWinner, generateRandomInt } from '../../constants/externalFunctions';
 
 class BoardGameTiles extends React.Component {
   constructor() {
@@ -29,17 +31,53 @@ class BoardGameTiles extends React.Component {
       }
       return null;
     };
+
+    this.calcMoveBot = (tiles, botSymbol) => {
+      const newTiles = tiles;
+      while (true) {
+        const randomTile = generateRandomInt(0, 9); // generate 0 - 8
+        if (newTiles[randomTile] === '') {
+          newTiles[randomTile] = botSymbol;
+          break;
+        }
+      }
+      return newTiles;
+    };
   }
 
   handleClick(i) {
     const boardTiles = this.props.boardTiles.slice();
     // check if the tile has been filled already
-    if (boardTiles[i] === '') {
-      boardTiles[i] = this.props.playerTurn;
-      console.log(`winner: ${this.calculateWinner(boardTiles)}`);
-
-      this.props.setBoardTiles(boardTiles);
-      this.props.setPlayerTurn(this.props.playerTurn === 'X' ? 'O' : 'X');
+    if (boardTiles[i] === '' && this.props.gameWinner === '') {
+      if (this.props.playMode === 'dual') {
+        boardTiles[i] = this.props.playerTurn;
+        const winner = calculateWinner(boardTiles);
+        this.props.setGameWinner(winner);
+        this.props.setBoardTiles(boardTiles);
+        // if the winner already decided (the game finishes), the button is no longer clickable
+        // so the player shouldn't change either
+        if (this.props.gameWinner === '') {
+          this.props.setPlayerTurn(this.props.playerTurn === 'X' ? 'O' : 'X');
+        }
+      } else if (this.props.playMode === 'single') {
+        // really dumb AI but okay that's fine for now LOL
+        const botSymbol = this.props.playerTurn === 'X' ? 'O' : 'X';
+        boardTiles[i] = this.props.playerTurn;
+        let counter = 0;
+        while (true) {
+          counter += 1;
+          const randomTile = generateRandomInt(0, 9);
+          console.log(randomTile);
+          if (boardTiles[randomTile] === '') {
+            boardTiles[randomTile] = botSymbol;
+            break;
+          }
+          if (counter >= 10000) {
+            break;
+          }
+        }
+        this.props.setBoardTiles(boardTiles);
+      }
     }
   }
 
@@ -82,8 +120,11 @@ BoardGameTiles.propTypes = {
     '',
   ])).isRequired,
   playerTurn: PropTypes.oneOf(['X', 'O']).isRequired,
+  playMode: PropTypes.oneOf(['single', 'dual']).isRequired,
+  gameWinner: PropTypes.oneOf(['X', 'O', 'draw', '']).isRequired,
   setBoardTiles: PropTypes.func.isRequired,
   setPlayerTurn: PropTypes.func.isRequired,
+  setGameWinner: PropTypes.func.isRequired,
 };
 
 export default BoardGameTiles;

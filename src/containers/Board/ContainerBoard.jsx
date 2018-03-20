@@ -5,6 +5,7 @@ const mapStateToProps = state => ({
   playMode: state.playMode,
   playerTurn: state.playerTurn,
   isGameLoading: state.isGameLoading,
+  gameWinner: state.gameWinner,
 });
 
 const ContainerBoard = connect(mapStateToProps)(Board);

@@ -4,3 +4,4 @@ export const SET_GAME_BEGIN = 'SET_GAME_BEGIN';
 export const SET_GAME_LOADING = 'SET_GAME_LOADING';
 export const SET_PLAYER_TURN = 'SET_PLAYER_TURN';
 export const SET_BOARD_TILES = 'SET_BOARD_TILES';
+export const SET_GAME_WINNER = 'SET_GAME_WINNER';

@@ -1,3 +1,4 @@
+/* eslint no-restricted-syntax: 0 */
 export const calculateWinner = (tiles) => {
   const winnerLines = [
     [0, 1, 2],
@@ -11,14 +12,19 @@ export const calculateWinner = (tiles) => {
   ];
 
   for (const winnerLine of winnerLines) {
-    const [a, b, c] = [winnerLine];
-    if (tiles[a] !== '' && tiles[a] === tiles[b] && tiles[a] === tiles[c]) {
+    const [a, b, c] = winnerLine;
+    if (tiles[a] && tiles[a] === tiles[b] && tiles[a] === tiles[c]) {
       return tiles[a];
     }
   }
-  return null;
-}
+  // check if draw
+  const newTiles = tiles.filter(tile => (tile === ''));
+  if (newTiles.length === 0) {
+    return 'draw';
+  }
+  return '';
+};
 
-export const justAHack = () => {
-  console.log('a hack');
-}
+export const generateRandomInt = (min, max) => (
+  Math.floor((Math.random() * (max - min)) + min)
+);

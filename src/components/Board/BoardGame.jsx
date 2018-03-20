@@ -3,15 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import BoardGameIntro from './BoardGameIntro';
 import ContainerBoardGameTiles from '../../containers/Board/ContainerBoardGameTiles';
+import { generateRandomInt } from '../../constants/externalFunctions';
 
 class BoardGame extends React.Component {
-  // constructor() {
-  //   super();
-  //   // this.state = {
-  //   //   isGameLoading: true,
-  //   // };
-  // }
-
   componentDidMount() {
     setTimeout(() => {
       // this.setState({ isGameLoading: false });
@@ -21,12 +15,8 @@ class BoardGame extends React.Component {
   }
 
   calculateFirstPlayerTurn() {
-    const getRandomInt = () => (
-      // 0 -> X; 1 -> O
-      Math.floor((Math.random() * 2) - 0.0001) // hack, change it later
-    );
-
-    this.props.setPlayerTurn(getRandomInt() === 0 ? 'X' : 'O');
+    // 0 -> X; 1 -> O
+    this.props.setPlayerTurn(generateRandomInt(0, 2) === 0 ? 'X' : 'O');
   }
 
   render() {

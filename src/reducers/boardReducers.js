@@ -5,6 +5,7 @@ import {
   SET_GAME_LOADING,
   SET_PLAYER_TURN,
   SET_BOARD_TILES,
+  SET_GAME_WINNER,
 } from '../constants/actionTypes';
 import initialState from '../constants/initialState';
 
@@ -62,6 +63,16 @@ export const boardTiles = (state = initialState.boardTiles, action) => {
   switch (action.type) {
     case SET_BOARD_TILES:
       return action.boardTiles;
+
+    default:
+      return state;
+  }
+};
+
+export const gameWinner = (state = '', action) => {
+  switch (action.type) {
+    case SET_GAME_WINNER:
+      return action.gameWinner;
 
     default:
       return state;

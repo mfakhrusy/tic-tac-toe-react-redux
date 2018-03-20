@@ -2,17 +2,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PlayerTurnStatus from './PlayerTurnStatus';
+import PlayerWinnerStatus from './PlayerWinnerStatus';
 import ContainerBoardInner from '../../containers/Board/ContainerBoardInner';
 
 class Board extends React.Component {
   render() {
-    const playerStatus = !this.props.isGameLoading ? (
-      <PlayerTurnStatus playerTurn={this.props.playerTurn} />
-    ) : '';
+    let gameStatus = '';
+    if (!this.props.isGameLoading) {
+      if (this.props.gameWinner === '') {
+        gameStatus = <PlayerTurnStatus playerTurn={this.props.playerTurn} />;
+      } else {
+        gameStatus = <PlayerWinnerStatus gameWinner={this.props.gameWinner} />;
+      }
+    }
 
     return (
       <div className="board">
-        {playerStatus}
+        {gameStatus}
         <ContainerBoardInner />
       </div>
     );
@@ -22,6 +28,7 @@ class Board extends React.Component {
 Board.propTypes = {
   playerTurn: PropTypes.oneOf(['X', 'O', '']).isRequired,
   isGameLoading: PropTypes.bool.isRequired,
+  gameWinner: PropTypes.oneOf(['X', 'O', 'draw', '']).isRequired,
 };
 
 export default Board;
